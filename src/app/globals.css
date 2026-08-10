@@ -1,0 +1,343 @@
+@import "tailwindcss";
+
+/* ============================================================
+   StackCrate Design System
+   Warm & playful — dark mode default, with light mode toggle
+   Palette: warm browns + orange accent (per PRD Section 6)
+   Fonts: Knewave (display), Mystery Quest (heading), Kranky (body)
+   ============================================================ */
+
+:root {
+  /* Dark mode (default) — warm browns, not pure black */
+  --background: #1a1410;
+  --foreground: #fafaf9;
+  --card: #2a201a;
+  --card-foreground: #fafaf9;
+  --popover: #2a201a;
+  --popover-foreground: #fafaf9;
+  --primary: #f97316;
+  --primary-foreground: #1a1410;
+  --secondary: #3d2f25;
+  --secondary-foreground: #fafaf9;
+  --muted: #2a201a;
+  --muted-foreground: #a8a29e;
+  --accent: #f97316;
+  --accent-foreground: #1a1410;
+  --destructive: #b91c1c;
+  --destructive-foreground: #fafaf9;
+  --border: #3d2f25;
+  --input: #3d2f25;
+  --ring: #f97316;
+
+  /* Status/chip foregrounds — dark (default) theme keep vivid warm tones */
+  --status-published-fg: #f97316;
+  --status-draft-fg: #fbbf24;
+  --chip-accent-fg: #f97316;
+  --chip-gold-fg: #fbbf24;
+
+  /* Spacing scale */
+  --radius: 0.75rem;
+
+  /* Scrollbar */
+  --scrollbar-thumb: #3d2f25;
+  --scrollbar-track: #1a1410;
+}
+
+.light {
+  --background: #fffbeb;
+  --foreground: #292524;
+  --card: #fef3c7;
+  --card-foreground: #292524;
+  --popover: #fef3c7;
+  --popover-foreground: #292524;
+  --primary: #f97316;
+  --primary-foreground: #fffbeb;
+  --secondary: #f5deb3;
+  --secondary-foreground: #292524;
+  --muted: #fef3c7;
+  --muted-foreground: #57534e;
+  --accent: #f97316;
+  --accent-foreground: #fffbeb;
+  --destructive: #b91c1c;
+  --destructive-foreground: #fffbeb;
+  --border: #f5deb3;
+  --input: #f5deb3;
+  --ring: #f97316;
+
+  /* Status/chip foregrounds — light theme deepen warm tones for WCAG AA */
+  --status-published-fg: #9a3412;
+  --status-draft-fg: #92400e;
+  --chip-accent-fg: #9a3412;
+  --chip-gold-fg: #92400e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-display: var(--font-knewave);
+  --font-heading: var(--font-mystery-quest);
+  --font-body: var(--font-kranky);
+  --font-sans: var(--font-kranky);
+  --font-mono: var(--font-geist-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  }
+  .font-heading {
+    font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  }
+  .font-body {
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Shimmer gradient warm (orange-pink-gold) for loading states */
+  .shimmer-warm {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(249, 115, 22, 0.15) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer-warm 1.8s linear infinite;
+  }
+
+  @keyframes shimmer-warm {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Glow accent for focus rings */
+  .focus-glow {
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--accent);
+  }
+
+  /* Status chips — semantic tokens for publish/draft (readable in dark & light) */
+  .status-published {
+    background-color: color-mix(in srgb, var(--status-published-fg) 15%, transparent);
+    color: var(--status-published-fg);
+    border-color: color-mix(in srgb, var(--status-published-fg) 35%, transparent);
+  }
+  .status-draft {
+    background-color: color-mix(in srgb, var(--status-draft-fg) 15%, transparent);
+    color: var(--status-draft-fg);
+    border-color: color-mix(in srgb, var(--status-draft-fg) 35%, transparent);
+  }
+
+  /* Icon chips — theme-aware warm accents (readable in dark & light) */
+  .chip-accent {
+    background-color: color-mix(in srgb, var(--chip-accent-fg) 15%, transparent);
+    color: var(--chip-accent-fg);
+  }
+  .chip-gold {
+    background-color: color-mix(in srgb, var(--chip-gold-fg) 15%, transparent);
+    color: var(--chip-gold-fg);
+  }
+
+  .ambient-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 50% 8%, color-mix(in srgb, var(--primary) 15%, transparent), transparent 42%),
+      var(--background);
+  }
+
+  .ambient-background__grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.16;
+    background-image: radial-gradient(circle at 1px 1px, var(--primary) 1px, transparent 0);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, black, transparent 88%);
+  }
+
+  .ambient-background__orb {
+    position: absolute;
+    width: clamp(18rem, 34vw, 34rem);
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--primary) 28%, transparent);
+    filter: blur(72px);
+    opacity: 0.52;
+    will-change: transform;
+    animation: ambient-drift-one 11s ease-in-out infinite alternate;
+  }
+
+  .ambient-background__orb--one {
+    top: -10rem;
+    left: 12%;
+  }
+
+  .ambient-background__orb--two {
+    right: 4%;
+    bottom: -13rem;
+    width: clamp(15rem, 28vw, 28rem);
+    opacity: 0.32;
+    animation-name: ambient-drift-two;
+    animation-duration: 14s;
+  }
+
+  .ambient-background__vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, color-mix(in srgb, var(--background) 42%, transparent) 100%);
+  }
+
+  .ambient-explore .ambient-background__orb--one {
+    top: 8%;
+    left: 58%;
+    opacity: 0.38;
+  }
+
+  .ambient-explore .ambient-background__orb--two {
+    right: 58%;
+    bottom: 18%;
+    opacity: 0.24;
+  }
+
+  .ambient-favorites .ambient-background__orb--one {
+    top: 10%;
+    left: 42%;
+    opacity: 0.34;
+  }
+
+  .ambient-favorites .ambient-background__orb--two {
+    right: 28%;
+    bottom: -16rem;
+    opacity: 0.2;
+  }
+
+  .ambient-detail .ambient-background__orb--one {
+    top: 18%;
+    left: -8rem;
+    opacity: 0.38;
+  }
+
+  .ambient-detail .ambient-background__orb--two {
+    right: -8rem;
+    bottom: 8%;
+    opacity: 0.34;
+  }
+
+  .ambient-auth .ambient-background__grid {
+    opacity: 0.08;
+  }
+
+  .ambient-auth .ambient-background__orb--one {
+    top: 18%;
+    left: 42%;
+    opacity: 0.3;
+  }
+
+  .ambient-auth .ambient-background__orb--two {
+    right: 30%;
+    bottom: 6%;
+    opacity: 0.24;
+  }
+
+  .ambient-legal .ambient-background__grid {
+    opacity: 0.06;
+  }
+
+  .ambient-legal .ambient-background__orb {
+    opacity: 0.14;
+    filter: blur(90px);
+    animation-duration: 18s;
+  }
+
+  @keyframes ambient-drift-one {
+    from { transform: translate3d(-3%, -2%, 0) scale(0.96); }
+    to { transform: translate3d(8%, 7%, 0) scale(1.08); }
+  }
+
+  @keyframes ambient-drift-two {
+    from { transform: translate3d(4%, 5%, 0) scale(1.04); }
+    to { transform: translate3d(-8%, -6%, 0) scale(0.92); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .ambient-background__orb {
+    animation: none !important;
+  }
+}
