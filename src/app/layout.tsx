@@ -45,9 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();
   const locale = getLocaleFromCookieValue(cookieStore.get(LOCALE_COOKIE)?.value);
   const isEnglish = locale === 'en';
-  const title = isEnglish
-    ? 'StackCrate — Video Asset Aggregator'
-    : 'StackCrate — Agregator Asset Video';
+  const title = 'StackCrate';
   const description = isEnglish
     ? 'Browse, preview, and download free video-editing assets. Audio and video clips for editors and creators.'
     : 'Jelajahi, preview, dan unduh asset editing video gratis. Klip audio dan video untuk editor dan kreator.';
@@ -57,6 +55,10 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     metadataBase: new URL(SITE_URL),
     openGraph: { title, description, type: 'website' },
+    icons: {
+      icon: '/favicon.svg',
+      shortcut: '/favicon.svg',
+    },
     manifest: '/api/manifest',
   };
 }

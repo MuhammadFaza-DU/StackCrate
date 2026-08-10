@@ -15,6 +15,13 @@ export function getPwaManifest(locale: Locale): MetadataRoute.Manifest {
     background_color: '#0a0a0a',
     theme_color: '#f97316',
     orientation: 'portrait-primary',
-    icons: [],
+    icons: [
+      {
+        src: '/favicon.svg',
+        type: 'image/svg+xml',
+        sizes: 'any',
+        purpose: 'any',
+      },
+    ],
   };
 }

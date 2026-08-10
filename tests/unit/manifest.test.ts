@@ -15,4 +15,17 @@ describe('PWA manifest localization', () => {
     expect(manifest.name).toBe('StackCrate - Asset Library');
     expect(manifest.description).toBe('Audio and video assets for creators.');
   });
+
+  it('provides the StackCrate favicon for installation', () => {
+    const manifest = getPwaManifest('en');
+
+    expect(manifest.icons).toEqual([
+      {
+        src: '/favicon.svg',
+        type: 'image/svg+xml',
+        sizes: 'any',
+        purpose: 'any',
+      },
+    ]);
+  });
 });

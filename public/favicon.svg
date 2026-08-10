@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">StackCrate</title>
+  <desc id="desc">A warm orange video editing timeline with a play button.</desc>
+  <rect width="64" height="64" rx="16" fill="#2a201a"/>
+  <path d="M10 46h44" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
+  <path d="M14 40v12M24 40v12M40 40v12M50 40v12" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+  <path d="m27 15 17 10-17 10z" fill="#fff7ed"/>
+  <circle cx="32" cy="25" r="19" fill="none" stroke="#f97316" stroke-width="4"/>
+</svg>
