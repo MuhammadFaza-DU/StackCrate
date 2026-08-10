@@ -88,6 +88,7 @@ export const idDictionary = {
     latestAssets: 'Asset Terbaru',
     loadError: 'Gagal memuat asset.',
     featuredLoadError: 'Gagal memuat asset unggulan.',
+    viewAll: 'Lihat Semua',
   },
   explore: {
     title: 'Jelajahi Semua Asset',

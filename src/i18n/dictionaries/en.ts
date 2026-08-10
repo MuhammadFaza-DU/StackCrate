@@ -88,6 +88,7 @@ export const enDictionary = {
     latestAssets: 'Latest Assets',
     loadError: 'Failed to load assets.',
     featuredLoadError: 'Failed to load the featured asset.',
+    viewAll: 'View All',
   },
   explore: {
     title: 'Explore All Assets',

@@ -91,6 +91,7 @@ export interface Dictionary {
     | 'latestAssets'
     | 'loadError'
     | 'featuredLoadError'
+    | 'viewAll'
   >;
   explore: Keys<
     | 'title'

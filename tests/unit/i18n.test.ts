@@ -201,4 +201,9 @@ describe('i18n core', () => {
       }
     }
   });
+
+  it('provides a localized view-all label on the home section', () => {
+    expect(getDictionary('id').home.viewAll).toBe('Lihat Semua');
+    expect(getDictionary('en').home.viewAll).toBe('View All');
+  });
 });
