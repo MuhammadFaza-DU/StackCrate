@@ -195,7 +195,7 @@ StackCrate
 6. Redirect ke asset detail
 
 ### Alur Favorite
-1. Login Google OAuth
+1. Login Google OAuth - belum
 2. Buka asset detail
 3. Klik Add to Favorites
 4. Bisa cek di `/favorites`
