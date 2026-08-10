@@ -86,7 +86,7 @@ export default function SignupPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder={text(dictionary.auth.emailPlaceholder)}
+                placeholder={text(dictionary.auth.signupEmailPlaceholder)}
               />
             </div>
             <div>

@@ -153,6 +153,7 @@ export const enDictionary = {
     showPassword: 'Show password',
     hidePassword: 'Hide password',
     emailPlaceholder: 'you@example.com',
+    signupEmailPlaceholder: 'Do not use a real account',
     passwordPlaceholder: '••••••••',
     displayNamePlaceholder: 'Optional',
     optional: 'Optional',

@@ -153,6 +153,7 @@ export const idDictionary = {
     showPassword: 'Tampilkan password',
     hidePassword: 'Sembunyikan password',
     emailPlaceholder: 'you@example.com',
+    signupEmailPlaceholder: 'jangan gunakan akun asli',
     passwordPlaceholder: '••••••••',
     displayNamePlaceholder: 'Opsional',
     optional: 'Opsional',

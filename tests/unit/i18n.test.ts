@@ -78,6 +78,13 @@ describe('i18n core', () => {
     expect(getDictionary('id').header.login).toBe('Masuk');
   });
 
+  it('warns signup users not to use a real account in the email placeholder', () => {
+    expect(getDictionary('id').auth.signupEmailPlaceholder).toBe('jangan gunakan akun asli');
+    expect(getDictionary('en').auth.signupEmailPlaceholder).toBe('Do not use a real account');
+    expect(getDictionary('id').auth.emailPlaceholder).toBe('you@example.com');
+    expect(getDictionary('en').auth.emailPlaceholder).toBe('you@example.com');
+  });
+
   it('provides locale-specific legal update dates', () => {
     expect(getDictionary('id').legal.lastUpdatedDate).toBe('10 Agustus 2026');
     expect(getDictionary('en').legal.lastUpdatedDate).toBe('August 10, 2026');
