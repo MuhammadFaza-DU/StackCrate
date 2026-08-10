@@ -6,6 +6,7 @@ import { HeroSection } from '@/components/layout/HeroSection';
 import { AmbientBackground } from '@/components/layout/AmbientBackground';
 import { ScrollVelocityText } from '@/components/layout/ScrollVelocityText';
 import { AssetGrid } from '@/components/assets/AssetGrid';
+import { ViewAllLink } from '@/components/assets/ViewAllLink';
 import { CategoryNav } from '@/components/categories/CategoryNav';
 import { SortTabs } from '@/components/assets/SortTabs';
 import type { AssetSortKey } from '@/components/assets/SortTabs';
@@ -17,7 +18,7 @@ import { useLocale } from '@/components/i18n/LocaleProvider';
 import type { Message } from '@/i18n/types';
 import { fetchJson } from '@/lib/http';
 
-const HOME_LIMIT = 10;
+const HOME_LIMIT = 12;
 const text = (message: Message) => typeof message === 'function' ? message() : message;
 
 export default function HomePage() {
@@ -159,7 +160,10 @@ export default function HomePage() {
             ))}
           </m.div>
         ) : (
-          <AssetGrid assets={assets} revealOnView />
+          <>
+            <AssetGrid assets={assets} revealOnView />
+            <ViewAllLink show={assets.length >= 12} />
+          </>
         )}
       </section>
       </div>
