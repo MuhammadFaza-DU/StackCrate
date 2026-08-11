@@ -122,7 +122,7 @@ export default function HomePage() {
       </m.div>
 
       {/* HS2: Latest Assets grid */}
-      <section id="assets" className="max-w-7xl mx-auto px-4 py-12 space-y-6">
+       <section id="assets" className="max-w-7xl mx-auto px-4 py-8 md:py-12 space-y-5 md:space-y-6">
         <m.div {...reveal(0)}>
           <h2 className="font-heading text-4xl text-foreground">
             {activeCat ? `${activeCat.icon ?? ''} ${activeCat.name}` : text(dictionary.home.latestAssets)}

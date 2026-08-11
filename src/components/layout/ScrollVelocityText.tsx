@@ -20,7 +20,7 @@ export function ScrollVelocityText({
   const totalText = texts.join(separator);
 
   return (
-    <div className={`overflow-hidden py-10 ${className}`} aria-hidden="true">
+    <div className={`overflow-hidden py-4 md:py-10 ${className}`} aria-hidden="true">
       <m.div
         className="flex w-max"
         animate={reduceMotion ? undefined : { x: '-50%' }}
@@ -33,7 +33,7 @@ export function ScrollVelocityText({
         {[0, 1].map((i) => (
           <span
             key={i}
-            className="shrink-0 text-4xl md:text-6xl font-display font-bold text-foreground/80 mx-6 whitespace-nowrap"
+            className="shrink-0 text-lg md:text-6xl font-display font-bold text-foreground/80 mx-3 md:mx-6 whitespace-nowrap"
           >
             {totalText}
           </span>

@@ -32,7 +32,8 @@ export function CategoryNav({ categories, selectable = false, activeSlug = '', o
   const pillInactive = 'bg-muted text-muted-foreground hover:bg-secondary hover:text-foreground';
 
   return (
-    <nav className="flex flex-wrap items-center gap-2 py-3">
+    <nav className="min-w-0 overflow-x-auto md:overflow-visible py-3">
+      <div className="flex min-w-max flex-nowrap items-center gap-2 md:min-w-0 md:flex-wrap">
       {selectable ? (
         <>
           <button
@@ -88,6 +89,7 @@ export function CategoryNav({ categories, selectable = false, activeSlug = '', o
           ))}
         </>
       )}
+      </div>
     </nav>
   );
 }

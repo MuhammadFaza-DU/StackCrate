@@ -126,7 +126,7 @@ export default function AssetPage() {
 
   if (loading) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
         <div className="animate-pulse space-y-4">
           <div className="h-8 w-48 bg-muted rounded" />
           <div className="aspect-video bg-muted rounded-xl" />
@@ -155,7 +155,7 @@ export default function AssetPage() {
   return (
     <main className="relative isolate overflow-hidden">
       <AmbientBackground variant="detail" />
-      <div className="relative z-10 max-w-4xl mx-auto px-4 py-8">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 py-5 md:py-8">
       {/* Back */}
       <Link href="/explore" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-6">
         <ArrowLeft className="w-4 h-4" /> {text(dictionary.assets.backToBrowse).replace(/^←\s*/, '')}
@@ -200,7 +200,7 @@ export default function AssetPage() {
               onPause={() => { isPlayingRef.current = false; }}
               onError={handleMediaError}
             />
-            <div className="mt-4 flex items-center gap-4">
+            <div className="mt-4 flex flex-wrap items-center gap-3 md:gap-4">
               <button aria-label={text(dictionary.assets.pauseAudio)} onClick={() => { audioRef.current?.pause(); isPlayingRef.current = false; }} className="p-2 rounded-full bg-muted hover:bg-primary/20 transition-colors">
                 <Pause className="w-5 h-5" />
               </button>
@@ -211,7 +211,7 @@ export default function AssetPage() {
                 {Math.floor(currentTime / 60)}:{String(currentTime % 60).padStart(2, '0')} / {Math.floor(duration / 60)}:{String(Math.floor(duration) % 60).padStart(2, '0')}
               </span>
               <Volume2 className="w-5 h-5 text-muted-foreground" />
-              <input aria-label={text(dictionary.assets.volume)} type="range" min="0" max="1" step="0.1" value={volume} onChange={(e) => { const v = parseFloat(e.target.value); setVolume(v); if (audioRef.current) audioRef.current.volume = v; }} className="w-24" />
+              <input aria-label={text(dictionary.assets.volume)} type="range" min="0" max="1" step="0.1" value={volume} onChange={(e) => { const v = parseFloat(e.target.value); setVolume(v); if (audioRef.current) audioRef.current.volume = v; }} className="w-24 max-w-full" />
             </div>
           </div>
         ) : (
@@ -221,9 +221,11 @@ export default function AssetPage() {
 
       {/* Info */}
       <div className="space-y-4">
-        <div className="flex items-start justify-between gap-4">
-          <h1 className="font-heading text-3xl text-foreground">{asset.title}</h1>
-          <FavoriteButton assetId={asset.id} size="lg" />
+        <div className="flex flex-wrap items-start justify-between gap-3 md:gap-4">
+          <h1 className="min-w-0 flex-1 break-words font-heading text-3xl text-foreground">{asset.title}</h1>
+          <div className="shrink-0">
+            <FavoriteButton assetId={asset.id} size="lg" />
+          </div>
         </div>
 
         {asset.description && (
@@ -261,8 +263,8 @@ export default function AssetPage() {
       </div>
 
       {/* Actions */}
-      <div className="flex gap-3 mt-8">
-        <Button variant="warm" size="lg" onClick={handleDownload} disabled={downloading}>
+      <div className="flex gap-3 mt-6 md:mt-8">
+        <Button variant="warm" size="lg" className="w-full sm:w-auto" onClick={handleDownload} disabled={downloading}>
           <Download className="w-5 h-5 mr-2" />
           {downloading ? text(dictionary.assets.generatingDownload) : text(dictionary.assets.downloadButton)}
         </Button>

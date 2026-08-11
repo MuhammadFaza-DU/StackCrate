@@ -81,7 +81,7 @@ export function HeroSection({ title, subtitle, heroNode, stats }: HeroSectionPro
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" aria-hidden />
 
       <m.div
-        className="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-8 py-16 md:py-24"
+        className="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-8 py-12 md:py-24"
         style={reduceMotion ? undefined : { y: contentY, opacity: contentOpacity, scale: contentScale }}
       >
         <m.div
@@ -92,15 +92,15 @@ export function HeroSection({ title, subtitle, heroNode, stats }: HeroSectionPro
         >
           {/* Left narrative */}
           <div>
-            <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-4 text-foreground">
+            <h1 className="font-display text-3xl sm:text-6xl md:text-7xl font-bold leading-tight mb-4 text-foreground">
               {title}
             </h1>
-            <p className="font-body text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-8">
+            <p className="font-body text-base md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-6 md:mb-8">
               {subtitle}
             </p>
 
             {stats && (
-              <div className="flex flex-wrap items-center gap-x-10 gap-y-4 mb-8">
+              <div className="flex flex-wrap items-center gap-x-6 md:gap-x-10 gap-y-4 mb-6 md:mb-8">
                 <div>
                    <p className="font-display text-3xl leading-none text-foreground"><CountUp value={stats.totalAssets} locale={locale} /></p>
                    <p className="mt-1.5 text-sm text-muted-foreground">{text(dictionary.home.statFreeAssets)}</p>

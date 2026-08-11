@@ -22,23 +22,25 @@ export function SortTabs({ value, onChange }: SortTabsProps) {
   ];
 
   return (
-    <div role="group" aria-label={text(dictionary.explore.sortLabel)} className="inline-flex items-center gap-1 rounded-full bg-muted p-1">
-      {options.map((opt) => (
-        <button
-          key={opt.value}
-          type="button"
-          aria-pressed={value === opt.value}
-          onClick={() => onChange(opt.value)}
-          className={cn(
-            'px-3 py-1.5 rounded-full text-sm font-body transition-all cursor-pointer border border-transparent',
-            value === opt.value
-              ? 'bg-primary text-primary-foreground font-semibold shadow-sm'
-              : 'text-muted-foreground hover:text-foreground hover:bg-accent/80'
-          )}
-        >
-          {opt.label}
-        </button>
-      ))}
+    <div className="min-w-0 overflow-x-auto">
+      <div role="group" aria-label={text(dictionary.explore.sortLabel)} className="inline-flex min-w-max items-center gap-1 rounded-full bg-muted p-1">
+        {options.map((opt) => (
+          <button
+            key={opt.value}
+            type="button"
+            aria-pressed={value === opt.value}
+            onClick={() => onChange(opt.value)}
+            className={cn(
+              'px-3 py-1.5 rounded-full text-sm font-body transition-all cursor-pointer border border-transparent',
+              value === opt.value
+                ? 'bg-primary text-primary-foreground font-semibold shadow-sm'
+                : 'text-muted-foreground hover:text-foreground hover:bg-accent/80'
+            )}
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

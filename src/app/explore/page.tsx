@@ -125,7 +125,8 @@ function ExploreContent() {
         )}
       </m.div>
 
-      <m.div {...reveal(0.08)} className="flex gap-2 mb-4 flex-wrap">
+       <m.div {...reveal(0.08)} className="min-w-0 overflow-x-auto md:overflow-visible mb-4">
+         <div className="flex w-max items-center gap-2 md:w-auto md:flex-wrap">
         <Button
           variant={type === '' ? 'warm' : 'outline'}
           size="default"
@@ -158,7 +159,8 @@ function ExploreContent() {
           <option value="downloads">{text(dictionary.explore.sortDownloads)}</option>
           <option value="views">{text(dictionary.explore.sortViews)}</option>
         </select>
-      </m.div>
+         </div>
+       </m.div>
 
       {categories.length > 0 && (
         <m.div {...reveal(0.16)}>

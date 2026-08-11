@@ -61,7 +61,7 @@ export default function LoginPage() {
   return (
     <main className="relative isolate overflow-hidden">
       <AmbientBackground variant="auth" />
-      <div className="relative z-10 max-w-md mx-auto px-4 py-16">
+      <div className="relative z-10 max-w-md mx-auto px-4 py-10 md:py-16">
       <Card>
         <CardHeader>
           <CardTitle className="font-heading text-2xl text-center">{text(dictionary.auth.signInTitle)}</CardTitle>
