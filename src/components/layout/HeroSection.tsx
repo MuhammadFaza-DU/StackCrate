@@ -129,8 +129,10 @@ export function HeroSection({ title, subtitle, heroNode, stats }: HeroSectionPro
             </div>
           </div>
 
-          {/* Right hero card */}
-          <div className="hidden lg:block min-w-0">{heroNode}</div>
+          {/* Featured asset follows the CTA on mobile and occupies the right column on desktop. */}
+          <div className="min-w-0 lg:col-start-2 lg:row-start-1">
+            {heroNode}
+          </div>
         </m.div>
       </m.div>
     </m.section>
