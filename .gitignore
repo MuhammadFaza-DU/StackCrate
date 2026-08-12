@@ -70,3 +70,6 @@ dev-*.log
 dev-fix.*
 dev-server.log
 build-check.txt
+
+# Strix security scan results
+strix_runs/
