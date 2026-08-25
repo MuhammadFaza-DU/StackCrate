@@ -881,9 +881,11 @@ export function useFeatured() {
   useEffect(() => {
     let ignore = false;
     queueMicrotask(() => {
-      if (!ignore) setLoading(true);
+      if (!ignore) {
+        setLoading(true);
+        setError(false);
+      }
     });
-    setError(false);
 
     const pickList = (featured: boolean) =>
       fetch(`/api/assets?featured=${featured ? 'true' : 'false'}&limit=1`)

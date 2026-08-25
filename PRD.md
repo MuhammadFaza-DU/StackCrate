@@ -195,7 +195,7 @@ StackCrate
 6. Redirect ke asset detail
 
 ### Alur Favorite
-1. Login Google OAuth
+1. Login Google OAuth - belum
 2. Buka asset detail
 3. Klik Add to Favorites
 4. Bisa cek di `/favorites`
@@ -534,3 +534,23 @@ web-asset-editor/
 - Multi-language / i18n
 - Admin moderation queue
 - Email notification
+
+> Tambahan dikit: 
+-- untuk jadi admin
+update public.profiles
+set role = 'admin'
+where email = 'email-kamu@contoh.com';
+
+-- Semua akun + rolenya
+select email, role from public.profiles order by role, email;
+
+-- Khusus admin saja
+select email from public.profiles where role = 'admin';
+
+--Menurunkan kasta
+update public.profiles
+set role = 'user'
+where email = 'email-kamu@contoh.com';
+
+--Hapus
+delete from auth.users where email = 'email-kamu@contoh.com';
