@@ -10,7 +10,7 @@
 
 ## Global Constraints
 
-- **Repo layout:** git root is `D:/Progamming/Project dan SourceCode/WEBB`; the app lives in `Web-Kumpulan-Asset-Editor/web-asset-editor/`. All bash/npm/commit commands run with `workdir` = that app folder; git `add` paths are relative to the repo root and prefixed with `Web-Kumpulan-Asset-Editor/web-asset-editor/`.
+- **Repo layout:** git root is `D:/Progamming/Project-SourceCode/WEBB`; the app lives in `Web-Kumpulan-Asset-Editor/web-asset-editor/`. All bash/npm/commit commands run with `workdir` = that app folder; git `add` paths are relative to the repo root and prefixed with `Web-Kumpulan-Asset-Editor/web-asset-editor/`.
 - **Package manager:** npm. Scripts: `npm run lint` (= `eslint`), `npm run test` (= `vitest run`). There is NO `typecheck` script — run `npx tsc --noEmit` instead.
 - **DB access:** NO ORM. Direct `@supabase/supabase-js` queries + plain SQL migrations in `supabase/migrations/`. Service-role client only for server mutations.
 - **Supabase cloud (no Docker local):** new migrations are NOT auto-applied. Each migration is a `[MANUAL]` step executed by the user in the Supabase SQL Editor, one step at a time with confirmation (repo convention documented in `docs/superpowers/plans/2026-08-08-stackcrate.md`).

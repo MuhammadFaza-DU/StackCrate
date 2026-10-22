@@ -10,7 +10,7 @@
 
 ## Global Constraints
 
-- **Repo layout:** git root is `D:/Progamming/Project dan SourceCode/WEBB`; the app lives in `Web-Kumpulan-Asset-Editor/web-asset-editor/`. All bash/npm/commit commands run with `workdir` = that app folder; git `add` paths are relative to the repo root and prefixed `Web-Kumpulan-Asset-Editor/web-asset-editor/`.
+- **Repo layout:** git root is `D:/Progamming/Project-SourceCode/WEBB`; the app lives in `Web-Kumpulan-Asset-Editor/web-asset-editor/`. All bash/npm/commit commands run with `workdir` = that app folder; git `add` paths are relative to the repo root and prefixed `Web-Kumpulan-Asset-Editor/web-asset-editor/`.
 - **Package manager:** npm. Scripts: `npm run lint`, `npm run test` (= `vitest run`). No typecheck script — use `npx tsc --noEmit`.
 - **framer-motion convention:** app wrapped in `<LazyMotion strict>`; import `{ m, useScroll, useTransform, useReducedMotion }` FROM `framer-motion`; use `m.*` components. Never import `motion`.
 - **Reduced motion:** ALL animations gated by `useReducedMotion()` (hero fade/video/count-up static; Aurora → static gradient fallback, no WebGL mount).
